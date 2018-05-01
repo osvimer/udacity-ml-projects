@@ -11960,7 +11960,7 @@ div#notebook {
 <span class="n">n_at_most_50k</span> <span class="o">=</span> <span class="n">n_records</span> <span class="o">-</span> <span class="n">n_greater_50k</span>
 
 <span class="c1"># TODO：被调查者收入大于$50,000所占的比例</span>
-<span class="n">greater_percent</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">*</span> <span class="n">n_greater_50k</span> <span class="o">/</span> <span class="n">n_records</span>
+<span class="n">greater_percent</span> <span class="o">=</span> <span class="mf">100.0</span> <span class="o">*</span> <span class="n">n_greater_50k</span> <span class="o">/</span> <span class="n">n_records</span>
 
 <span class="c1"># 打印结果</span>
 <span class="k">print</span> <span class="s2">&quot;Total number of records: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n_records</span><span class="p">)</span>
@@ -11986,7 +11986,7 @@ div#notebook {
 <pre>Total number of records: 45222
 Individuals making more than $50,000: 11208
 Individuals making at most $50,000: 34014
-Percentage of individuals making more than $50,000: 0.25%
+Percentage of individuals making more than $50,000: 24.78%
 </pre>
 </div>
 </div>
@@ -12271,7 +12271,7 @@ Percentage of individuals making more than $50,000: 0.25%
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO：使用pandas.get_dummies()对&#39;features_raw&#39;数据进行独热编码</span>
@@ -12324,7 +12324,7 @@ Percentage of individuals making more than $50,000: 0.25%
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 导入 train_test_split</span>
@@ -12401,16 +12401,16 @@ Testing set has 9045 samples.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1">#不能使用scikit-learn，你需要根据公式自己实现相关计算。</span>
 
 <span class="c1">#TODO： 计算准确率</span>
 
-<span class="n">True_Pos</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="mi">1</span> <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">income</span><span class="p">])</span>
+<span class="n">True_Pos</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="mi">1</span> <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">y_val</span><span class="p">])</span>
 <span class="n">True_Neg</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">False_Pos</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="mi">1</span> <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">income</span><span class="p">])</span>
+<span class="n">False_Pos</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="mi">1</span> <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">y_val</span><span class="p">])</span>
 <span class="n">False_Neg</span> <span class="o">=</span> <span class="mi">0</span>
 
 <span class="c1">#print &quot;True_Pos:%d, False_Pos:%d&quot; % (True_Pos, False_Pos)</span>
@@ -12570,7 +12570,7 @@ evidence from the online P2P lending market</a></li>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO：从sklearn中导入两个评价指标 - fbeta_score和accuracy_score</span>
@@ -12606,7 +12606,7 @@ evidence from the online P2P lending market</a></li>
     <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span> <span class="c1"># 获得程序结束时间</span>
     
     <span class="c1"># TODO：计算预测用时</span>
-    <span class="n">results</span><span class="p">[</span><span class="s1">&#39;pred_time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">end</span> <span class="o">=</span> <span class="n">start</span>
+    <span class="n">results</span><span class="p">[</span><span class="s1">&#39;pred_time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">end</span> <span class="o">-</span> <span class="n">start</span>
             
     <span class="c1"># TODO：计算在最前面的300个训练数据的准确率</span>
     <span class="n">results</span><span class="p">[</span><span class="s1">&#39;acc_train&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_train</span><span class="p">[:</span><span class="mi">300</span><span class="p">],</span> <span class="n">predictions_train</span><span class="p">)</span>
@@ -12771,7 +12771,11 @@ LogisticRegression trained on 28941 samples.
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>回答：</strong>我们需要判断被调查者的收入是否大于\$50,000，这是一个典型的二分类问题。我选择使用逻辑回归模型来进行预测，这个模型会计算被调查者的收入大于$50,000的概率和收入不超过$50,000哪个可能性更大，从而做出选择。首先，取出一部分样本作为训练集，让模型将每个人的特征（比如年龄、受教程度等）与其收入水平建立联系；然后我将该模型应用于另一部分样本（验证集），看看该模型在验证集上表现如何，是否合格，如果表现不太好，我会调节一些模型相关的参数来使得模型表现得更好；最后，我会将该模型应用于全新的数据，用于预测被调查者的收入是否大于$50,000。</p>
+<p><strong>回答：</strong>我们需要判断被调查者的收入是否大于\$50,000，这是一个典型的二分类问题。我选择使用逻辑回归模型来进行预测，这个模型会计算被调查者的收入大于$50,000的概率和收入不超过$50,000哪个可能性更大，从而做出选择。</p>
+<p>逻辑回归是用来解决二分类问题的，即案例标签不是A就是B，只有二种可能。说得简单点就是，给你一条数据，用逻辑回归可以判断出这条数据应该被分到两个类别中的哪个中去。一般地，对于特定问题，我们一般把正例标签标记为1, 把反例标签标记为0。我们通过一个叫做逻辑函数的函数，建立特征与标签之间的函数关系，这个叫做假设函数。对于特定的假设函数，计算模型损失，也就是模型预测错误的程度，这个函数叫做代价函数。然后主要任务，就是通过训练数据集来最小化这个代价函数，来得到最佳的参数。</p>
+<p>针对此问题，首先处理数据集标签，把收入高于$50,000标记为1，不超过$50,000标记为0。然后，取出一部分样本作为训练集，让模型将每个人的特征（比如年龄、受教程度等）与标签(收入是否大于 $50,000)建立联系。通过上面所讲到的最小化代价函数的过程，得到模型参数。</p>
+<p>然后，将所得模型应用于另一部分样本（验证集），看看该模型在验证集上表现如何，是否合格，如果表现不太好，我会调整模型或者调节一些相关的参数，比如增加或者减少一些特征，调整学习速率等等，来使得模型表现得更好。这个过程可能会重复数次，直至达到预期。</p>
+<p>最后，我将该模型应用于全新的数据，用于预测被调查者的收入是否大于$50,000。如果模型的计算结果为1, 则预测该被调查收入大于 $50,000；如果计算结果为0,则预测收入不超过 $50,000。</p>
 
 </div>
 </div>
