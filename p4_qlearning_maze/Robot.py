@@ -1,4 +1,5 @@
 import random
+import numpy as np
 
 class Robot(object):
 
@@ -45,7 +46,10 @@ class Robot(object):
             self.epsilon = 0
         else:
             # TODO 2. Update parameters when learning
-            self.epsilon = self.epsilon0 / (0.1 * self.t + 1)
+            # 把 epsilon 的衰减想象成"自然冷却"
+            # 使用基于牛顿冷却定律的时间衰减函数
+            # Exponential decay
+            self.epsilon = self.epsilon0 * np.exp(-0.1 * self.t)
             self.t += 1
 
         return self.epsilon
@@ -67,8 +71,7 @@ class Robot(object):
         # Qtable[state] ={'u':xx, 'd':xx, ...}
         # If Qtable[state] already exits, then do
         # not change it.
-        if state not in self.Qtable.keys():
-            self.Qtable.setdefault(state, {a: 0.0 for a in self.valid_actions})
+        self.Qtable.setdefault(state, {a: 0.0 for a in self.valid_actions})
 
     def choose_action(self):
         """
