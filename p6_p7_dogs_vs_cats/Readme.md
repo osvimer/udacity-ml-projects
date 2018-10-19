@@ -12,11 +12,12 @@
 + numpy
 + pandas
 + qtdm
++ csv
 + cv2
 + sklearn
 + keras
 + matplotlib
 + shutil
 
-### 运行时长
-+ Xception: 7mins/Epoch *  50 Epochs
+### 运行总时长
++ 20 分钟
